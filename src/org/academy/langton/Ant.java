@@ -43,12 +43,15 @@ public class Ant {
         // At a black square, turn 90° left, flip the color of the square, move forward one unit
 
         Cell currentCell = ground.cellAt(gridPosition);
-        if (currentCell.isActive()){
+        if (currentCell.getCellColour() == 42){
             turnCounterclockwise();
-        } else {
+            currentCell.setCellColour("black");
+        } else if (currentCell.getCellColour() == 255) {
             turnClockwise();
+            currentCell.setCellColour("red");
+        } else {
+            currentCell.setCellColour("white");
         }
-        currentCell.toggleActive();
         moveForward();
 
         //Notes: In the ground object, "white" squares are "inactive", "black" squares are "active"
