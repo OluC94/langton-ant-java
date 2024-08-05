@@ -6,6 +6,7 @@ import processing.core.PApplet;
 //https://openprocessing.org/sketch/2248058
 public class Main extends PApplet {
     private Ant ant;
+    private Ant ant2;
     private Ground ground;
     private final int pixelWidth = 800;
     private final int pixelHeight = 800;
@@ -30,9 +31,10 @@ public class Main extends PApplet {
         GridPosition startPos = new GridPosition(numColumns / 2, numRows / 2);
 
         ant = new Ant(this, ground, startPos);
+        ant2 = new Ant(this, ground, startPos);
 
         //You can speed things up or down, here:
-        frameRate(300);
+        frameRate(3);
     }
 
     @Override
@@ -40,6 +42,8 @@ public class Main extends PApplet {
         background(200);
         ground.draw();
         ant.display();
+        ant2.display();
         ant.update();
+        ant2.update();
     }
 }
