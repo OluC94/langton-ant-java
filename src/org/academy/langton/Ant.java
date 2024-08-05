@@ -33,6 +33,7 @@ public class Ant {
         p5.text(gridPosition.toString(), 20, 50);
     }
 
+
     public void update() {
         //TODO: your task.  Make the ant move according to the rules in:
         // https://codingdojo.org/kata/LangtonAnt/
@@ -41,6 +42,13 @@ public class Ant {
         // At a white square, turn 90° right, flip the color of the square, move forward one unit
         // At a black square, turn 90° left, flip the color of the square, move forward one unit
 
+        Cell currentCell = ground.cellAt(gridPosition);
+        if (currentCell.isActive()){
+            turnCounterclockwise();
+        } else {
+            turnClockwise();
+        }
+        currentCell.toggleActive();
         moveForward();
 
         //Notes: In the ground object, "white" squares are "inactive", "black" squares are "active"
